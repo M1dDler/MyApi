@@ -1,10 +1,11 @@
-﻿using Domain;
+﻿using DataAccess.Interfaces;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class MyApiDbContext : DbContext
+    public class MyApiDbContext : DbContext, IUnitWork 
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }

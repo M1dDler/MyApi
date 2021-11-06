@@ -14,7 +14,7 @@ namespace PaymentsList.DataAccess.Implementation
     {
         private readonly MyApiDbContext _context;
 
-        public IUnitWork UnitWork => (IUnitWork)_context;
+        public IUnitWork UnitWork => _context;
 
         public BaseRepository(MyApiDbContext context)
         {
