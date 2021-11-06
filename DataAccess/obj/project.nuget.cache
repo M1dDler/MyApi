@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Imt8mN/QW2+ClD2xwRrKvfqt/Ee9PLPx+om8sbK+baSs1WDSIQgxrdNtCSnV6pUs5Aui0gScc+iOEuLwvRHPzw==",
+  "dgSpecHash": "Gz/m7LOrof3hbTSi8JPkXQdqQ3Nn0+fKdwLjzABnqaQzUwJizrfNOBquCzIrBPskW8lxqgAR3zUWDQU4ujgb4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\M1dDler\\source\\repos\\MyApi\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\M1dDler\\.nuget\\packages\\ardalis.specification\\5.2.0\\ardalis.specification.5.2.0.nupkg.sha512",
+    "C:\\Users\\M1dDler\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\5.2.0\\ardalis.specification.entityframeworkcore.5.2.0.nupkg.sha512",
     "C:\\Users\\M1dDler\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\M1dDler\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\M1dDler\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

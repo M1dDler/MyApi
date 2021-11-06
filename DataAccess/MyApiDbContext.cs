@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -8,10 +9,37 @@ namespace DataAccess
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MyApiDbContext(DbContextOptions<MyApiDbContext> options) : base(options)
         {
-            var conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MyDataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            optionsBuilder.UseSqlServer(conn);
+
         }
+
+
+        public async Task CommitAsync()
+        {
+            await this.SaveChangesAsync(cancellationToken: default);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>(b =>
+            {
+                b.HasKey(x => x.Id);
+                b.HasMany(x => x.Groups)
+                    .WithMany(u => u.User);
+                b.HasIndex(x => x.Name)
+                    .IsUnique();
+            });
+
+            modelBuilder.Entity<Group>(b =>
+            {
+                b.HasKey(x => x.Id);
+                b.HasMany(x => x.User)
+                    .WithMany(u => u.Groups);
+                b.HasIndex(x => x.Name)
+                    .IsUnique();
+            });
+        }
+
     }
 }

@@ -19,22 +19,7 @@ namespace DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("GroupUser", b =>
-                {
-                    b.Property<int>("GroupsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GroupsId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("GroupUser");
-                });
-
-            modelBuilder.Entity("MyApi.Domain.Group", b =>
+            modelBuilder.Entity("Domain.Group", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,14 +27,18 @@ namespace DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("MyApi.Domain.Payment", b =>
+            modelBuilder.Entity("Domain.Payment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +74,7 @@ namespace DataAccess.Migrations
                     b.ToTable("Payment");
                 });
 
-            modelBuilder.Entity("MyApi.Domain.User", b =>
+            modelBuilder.Entity("Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,39 +82,43 @@ namespace DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("GroupUser", b =>
                 {
-                    b.HasOne("MyApi.Domain.Group", null)
-                        .WithMany()
-                        .HasForeignKey("GroupsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("GroupsId")
+                        .HasColumnType("int");
 
-                    b.HasOne("MyApi.Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GroupsId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GroupUser");
                 });
 
-            modelBuilder.Entity("MyApi.Domain.Payment", b =>
+            modelBuilder.Entity("Domain.Payment", b =>
                 {
-                    b.HasOne("MyApi.Domain.Group", "Group")
+                    b.HasOne("Domain.Group", "Group")
                         .WithMany("Payments")
                         .HasForeignKey("GroupId");
 
-                    b.HasOne("MyApi.Domain.User", "Issuer")
+                    b.HasOne("Domain.User", "Issuer")
                         .WithMany()
                         .HasForeignKey("IssuerId");
 
-                    b.HasOne("MyApi.Domain.User", "Recipient")
+                    b.HasOne("Domain.User", "Recipient")
                         .WithMany()
                         .HasForeignKey("RecipientId");
 
@@ -136,7 +129,22 @@ namespace DataAccess.Migrations
                     b.Navigation("Recipient");
                 });
 
-            modelBuilder.Entity("MyApi.Domain.Group", b =>
+            modelBuilder.Entity("GroupUser", b =>
+                {
+                    b.HasOne("Domain.Group", null)
+                        .WithMany()
+                        .HasForeignKey("GroupsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Group", b =>
                 {
                     b.Navigation("Payments");
                 });

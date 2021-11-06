@@ -5,8 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using DataAccess;
-
-
+using Microsoft.EntityFrameworkCore;
 
 namespace MyApi
 {
@@ -24,7 +23,7 @@ namespace MyApi
         {
 
             services.AddControllers();
-            services.AddDbContext<MyApiDbContext>();
+            services.AddDbContext<MyApiDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ToDoDb")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyApi", Version = "v1" });
