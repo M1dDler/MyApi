@@ -33,6 +33,7 @@ namespace MyApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyApi", Version = "v1" });
             });
 
+            services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
