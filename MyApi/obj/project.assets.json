@@ -2108,6 +2108,21 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Ardalis.Specification": "5.2.0",
+          "DataAccess": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -7400,6 +7415,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
@@ -7413,6 +7433,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "BusinessLogic >= 1.0.0",
       "DataAccess >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.11",
@@ -7447,6 +7468,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\M1dDler\\source\\repos\\MyApi\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\M1dDler\\source\\repos\\MyApi\\BusinessLogic\\BusinessLogic.csproj"
+            },
             "C:\\Users\\M1dDler\\source\\repos\\MyApi\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\M1dDler\\source\\repos\\MyApi\\DataAccess\\DataAccess.csproj"
             }

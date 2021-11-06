@@ -15,3 +15,4 @@ C:\Users\M1dDler\source\repos\MyApi\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\Users\M1dDler\source\repos\MyApi\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\M1dDler\source\repos\MyApi\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 C:\Users\M1dDler\source\repos\MyApi\DataAccess\obj\Debug\net5.0\DataAccess.genruntimeconfig.cache
+C:\Users\M1dDler\source\repos\MyApi\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete

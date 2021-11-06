@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "MyApi/1.0.0": {
         "dependencies": {
+          "BusinessLogic": "1.0.0",
           "DataAccess": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.11",
@@ -1886,6 +1887,19 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "BusinessLogic/1.0.0": {
+        "dependencies": {
+          "Ardalis.Specification": "5.2.0",
+          "DataAccess": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "BusinessLogic.dll": {}
+        },
+        "compile": {
+          "BusinessLogic.dll": {}
         }
       },
       "DataAccess/1.0.0": {
@@ -4528,6 +4542,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "DataAccess/1.0.0": {
       "type": "project",

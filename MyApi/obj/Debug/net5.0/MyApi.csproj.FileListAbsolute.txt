@@ -138,3 +138,5 @@ C:\Users\M1dDler\source\repos\MyApi\MyApi\bin\Debug\net5.0\Domain.pdb
 C:\Users\M1dDler\source\repos\MyApi\MyApi\obj\Debug\net5.0\MyApi.csproj.CopyComplete
 C:\Users\M1dDler\source\repos\MyApi\MyApi\bin\Debug\net5.0\Ardalis.Specification.dll
 C:\Users\M1dDler\source\repos\MyApi\MyApi\bin\Debug\net5.0\Ardalis.Specification.EntityFrameworkCore.dll
+C:\Users\M1dDler\source\repos\MyApi\MyApi\bin\Debug\net5.0\BusinessLogic.dll
+C:\Users\M1dDler\source\repos\MyApi\MyApi\bin\Debug\net5.0\BusinessLogic.pdb
