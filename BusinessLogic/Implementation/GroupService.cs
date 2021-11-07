@@ -42,5 +42,19 @@ namespace BusinessLogic.Implementation
             await _repository.UpdateAsync(group);
             await _repository.UnitWork.CommitAsync();
         }
+
+        public async Task CompleteGroupAsync(int id)
+        {
+            var Item = await _repository.GetByIdAsync(id);
+
+            if (Item is null)
+            {
+                throw new System.Exception();
+            }
+
+            Item.isCompleted = true;
+            await _repository.UpdateAsync(Item);
+            await _repository.UnitWork.CommitAsync();
+        }
     }
 }
