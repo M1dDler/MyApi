@@ -10,7 +10,7 @@ namespace BusinessLogic.Specifications
         {
             public GroupIdSpecification(int id)
             {
-                Query.Where(x => x.Id == id);
+                Query.Where(x => x.Id == id);   
             }
         }
 
