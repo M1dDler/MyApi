@@ -1,8 +1,4 @@
-﻿
-
-using Domain;
-
-namespace Domain
+﻿namespace Domain
 {
     public class Payment
     {

@@ -4,9 +4,9 @@ using Domain;
 
 namespace BusinessLogic.Specifications
 {
-    public class UserInGroupByIdSpecification : Specification<Group>
+    public class UserGroupSpecification : Specification<Group>
     {
-        public UserInGroupByIdSpecification(int groupId)
+        public UserGroupSpecification(int groupId)
         {
             Query.Where(x => x.Id == groupId)
                 .Include(y => y.User);
