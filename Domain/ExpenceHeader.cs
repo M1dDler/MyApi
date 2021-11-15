@@ -1,9 +1,4 @@
-﻿using Domain;
-using System;
-using System.Collections.Generic;
-
-
-namespace Domain
+﻿namespace Domain
 {
     public class ExpenceHeader
     {
