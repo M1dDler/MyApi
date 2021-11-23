@@ -11,38 +11,38 @@ namespace BusinessLogic.Implementation
 {
     public class GroupService : IGroupService
     {
-        private readonly IBaseRepository<Group> _grouprepository;
-        private readonly IBaseRepository<User> _userrepository;
-
-        public GroupService(IBaseRepository<Group> grouprepository, IBaseRepository<User> userrepository)
+        private readonly IBaseRepository<Group> _repository;
+        private readonly IBaseRepository<User> _userRepository;
+        public GroupService(IBaseRepository<Group> repository, IBaseRepository<User> userReoisitory)
         {
-            _grouprepository = grouprepository;
-            _userrepository = userrepository;
-        }
-
-        public async Task<IEnumerable<Group>> GetGroupsAsync()
-        {
-            return await _grouprepository.GetAsync();
+            _repository = repository;
+            _userRepository = userReoisitory;
         }
 
         public async Task AddUserToGroupAsync(int groupId, int userId)
         {
-            var user = await _userrepository.GetByIdAsync(userId);
-            var group = await _grouprepository.GetByIdAsync(groupId);
+            var user = await _userRepository.GetByIdAsync(userId);
+            var group = await _repository.GetByIdAsync(groupId);
             if (user == null)
             {
                 throw new NotFoundUserException();
             }
             var specification = new UserGroupSpecification(groupId);
-            var usersInGroup = await _grouprepository.GetSingleAsync(specification);
+            var usersInGroup = await _repository.GetSingleAsync(specification);
 
             if (!usersInGroup.User.Any(x => x.Id == userId))
             {
                 throw new IsUserInGroup();
             }
             group.User.Add(user);
-            await _grouprepository.UpdateAsync(group);
-            await _grouprepository.UnitWork.CommitAsync();
+            await _repository.UpdateAsync(group);
+            await _repository.UnitWork.CommitAsync();
+        }
+
+        public async Task<IEnumerable<Group>> GetGroupsAsync()
+        {
+            return await _repository.GetAsync();
         }
     }
+
 }

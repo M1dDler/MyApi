@@ -1,6 +1,8 @@
-﻿namespace Domain
+﻿using Domain.Interfaces;
+
+namespace Domain
 {
-    public class Payment
+    public class Payment : IEntity
     {
         public int Id { get; set; }
         public int Amount { get; set; }

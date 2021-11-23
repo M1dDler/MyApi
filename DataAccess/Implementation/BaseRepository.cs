@@ -66,4 +66,5 @@ namespace PaymentsList.DataAccess.Implementation
             return evaluator.GetQuery(_context.Set<T>(), specification);
         }
     }
+
 }

@@ -10,6 +10,7 @@ using BusinessLogic.Interfaces;
 using DataAccess.Interfaces;
 using PaymentsList.DataAccess.Implementation;
 using BusinessLogic.Implementation;
+using MyApi.Middlewares;
 
 namespace MyApi
 {
@@ -33,6 +34,7 @@ namespace MyApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyApi", Version = "v1" });
             });
 
+            services.AddScoped<IExpenceService, ExpenceService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IUserService, UserService>();
@@ -40,9 +42,12 @@ namespace MyApi
 
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<Middleware>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
